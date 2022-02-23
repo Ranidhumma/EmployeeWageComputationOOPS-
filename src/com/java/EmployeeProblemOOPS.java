@@ -5,10 +5,11 @@ import java.util.Random;
 class Employee {
     static final int IS_FULL_TIME = 1;
     static final int EMP_WAGE_PER_DAY = 20;
+    static final int IS_PART_TIME = 2;
 
     public static int empCheck() {
 	Random random = new Random();
-	int empCheck = random.nextInt(2);
+	int empCheck = random.nextInt(3);                          //0,1,2 Random function added part time 
 	return empCheck;
     }
 
@@ -18,7 +19,11 @@ class Employee {
 	{
 	    empWrkHrs = 8;
 	}
-	else 
+	else if (empCheck == IS_PART_TIME)
+	{
+		empWrkHrs = 4 ;
+	}
+    else
 	{
 	    empWrkHrs = 0;
 	}
@@ -30,7 +35,7 @@ class Employee {
 public class EmployeeProblemOOPS {
 
     public static void main(String[] args) {
-	System.out.println("Here we are Calculating wage of employee per day");
+	System.out.println("Here we are Calculating Part Time wage as well of employee per day");
 	int empCheck = Employee.empCheck();
 	Employee.empSalary(empCheck);
     }
